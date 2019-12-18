@@ -21,7 +21,7 @@ ENV APIKEY=
 ENV SERVERACCOUNT=
 
 RUN chmod 0775 /opt/ && chown steam.steam /opt/ && \
-    su steam -c "mkdir -p ${STEAMCMDDIR} ${SERVERDIR} /home/steam/.steam/sdk32/
+    su steam -c "mkdir -p ${SERVERDIR}"
 
 COPY /data/ /opt/
 RUN chmod 0775 /opt/entrypoint.sh && chown steam.steam /opt/entrypoint.sh && \
