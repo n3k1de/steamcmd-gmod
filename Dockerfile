@@ -28,5 +28,6 @@ RUN chmod 0775 /opt/entrypoint.sh && chown steam.steam /opt/entrypoint.sh && \
     su steam -c "${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit"
 
 USER steam
-VOLUME ["${SERVERDIR}"]
+WORKDIR ${STEAMCMDDIR}
+VOLUME ${SERVERDIR}
 ENTRYPOINT ["/opt/entrypoint.sh"]
