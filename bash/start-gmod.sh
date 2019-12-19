@@ -27,6 +27,7 @@ echo "./srcds_run \
  +host_workshop_collection ${WORKSHOPCOLLECTION}"
 
 ./srcds_run \
+ -authkey "${APIKEY}" \
  -console \
  -game "garrysmod" \
  +port ${PORT} \
@@ -36,4 +37,3 @@ echo "./srcds_run \
  +sv_setsteamaccount "${SERVERACCOUNT}" \
  +gamemode "${GAMEMODE}" \
  +host_workshop_collection "${WORKSHOPCOLLECTION}"
-#  -authkey "${APIKEY}" \
