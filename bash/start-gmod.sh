@@ -28,12 +28,12 @@ echo "./srcds_run \
 
 ./srcds_run \
  -console \
- -game garrysmod \
- +maxplayers ${MAXPLAYERS} \
- +map ${MAP} \
- +sv_setsteamaccount ${SERVERACCOUNT} \
- +gamemode ${GAMEMODE} \
+ -game "garrysmod" \
  +port ${PORT} \
- +clientport ${CLIENTPORT}
- -authkey ${APIKEY} \
- +host_workshop_collection ${WORKSHOPCOLLECTION}
+ +clientport ${CLIENTPORT} \
+ +maxplayers ${MAXPLAYERS} \
+ +map "${MAP}" \
+ +sv_setsteamaccount "${SERVERACCOUNT}" \
+ +gamemode "${GAMEMODE}" \
+ -authkey "${APIKEY}" \
+ +host_workshop_collection "${WORKSHOPCOLLECTION}"
