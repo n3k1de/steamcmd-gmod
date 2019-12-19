@@ -36,4 +36,4 @@ echo "./srcds_run \
  +map "${MAP}" \
  +sv_setsteamaccount "${SERVERACCOUNT}" \
  +gamemode "${GAMEMODE}" \
- +host_workshop_collection "${WORKSHOPCOLLECTION}"
+# +host_workshop_collection "${WORKSHOPCOLLECTION}"
