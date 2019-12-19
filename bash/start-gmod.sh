@@ -15,21 +15,25 @@ cd ${SERVERDIR}/gmod/
 # ./srcds_run -console -game garrysmod +sv_setsteamaccount ${SERVERACCOUNT} -authkey ${APIKEY} +host_workshop_collection ${WORKSHOPCOLLECTION} +port ${PORT} +tv_port ${PORTTV} +clientport ${CLIENTPORT} +maxplayers ${MAXPLAYERS} +gamemode ${GAMEMODE} +map ${MAP} -tickrate 66 -exec server.cfg
 # ./srcds_run -game garrysmod -ip 0.0.0.0 +sv_setsteamaccount ${SERVERACCOUNT} +maxplayers ${MAXPLAYERS} +gamemode ${GAMEMODE} +map ${MAP}
 echo "./srcds_run \
-    -console \
-    -game garrysmod \
-    +maxplayers ${MAXPLAYERS} \
-    +map ${MAP} \
-    +sv_setsteamaccount ${SERVERACCOUNT} \
-    +gamemode ${GAMEMODE} \
-    +port ${PORT} \
-    +clientport ${CLIENTPORT}"
+ -console \
+ -game garrysmod \
+ +maxplayers ${MAXPLAYERS} \
+ +map ${MAP} \
+ +sv_setsteamaccount ${SERVERACCOUNT} \
+ +gamemode ${GAMEMODE} \
+ +port ${PORT} \
+ +clientport ${CLIENTPORT}
+ -authkey ${APIKEY} \
+ +host_workshop_collection ${WORKSHOPCOLLECTION}"
 
 ./srcds_run \
-    -console \
-    -game garrysmod \
-    +maxplayers ${MAXPLAYERS} \
-    +map ${MAP} \
-    +sv_setsteamaccount ${SERVERACCOUNT} \
-    +gamemode ${GAMEMODE} \
-    +port ${PORT} \
-    +clientport ${CLIENTPORT}
+ -console \
+ -game garrysmod \
+ +maxplayers ${MAXPLAYERS} \
+ +map ${MAP} \
+ +sv_setsteamaccount ${SERVERACCOUNT} \
+ +gamemode ${GAMEMODE} \
+ +port ${PORT} \
+ +clientport ${CLIENTPORT}
+ -authkey ${APIKEY} \
+ +host_workshop_collection ${WORKSHOPCOLLECTION}
