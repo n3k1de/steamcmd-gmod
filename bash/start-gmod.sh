@@ -22,7 +22,7 @@ echo "./srcds_run \
  +sv_setsteamaccount ${SERVERACCOUNT} \
  +gamemode ${GAMEMODE} \
  +port ${PORT} \
- +clientport ${CLIENTPORT}
+ +clientport ${CLIENTPORT} \
  -authkey ${APIKEY} \
  +host_workshop_collection ${WORKSHOPCOLLECTION}"
 
@@ -35,5 +35,5 @@ echo "./srcds_run \
  +map "${MAP}" \
  +sv_setsteamaccount "${SERVERACCOUNT}" \
  +gamemode "${GAMEMODE}" \
- -authkey "${APIKEY}" \
  +host_workshop_collection "${WORKSHOPCOLLECTION}"
+#  -authkey "${APIKEY}" \
