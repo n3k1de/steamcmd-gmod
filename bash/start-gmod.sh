@@ -30,6 +30,7 @@ echo "./srcds_run \
  -game "garrysmod" \
  -console -nobreakpad -usercon -secure \
  -authkey "${APIKEY}" \
+ -port ${PORT}
  +port ${PORT} \
  +clientport ${CLIENTPORT} \
  +maxplayers ${MAXPLAYERS} \
