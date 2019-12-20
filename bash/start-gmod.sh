@@ -27,9 +27,9 @@ echo "./srcds_run \
  +host_workshop_collection ${WORKSHOPCOLLECTION}"
 
 ./srcds_run \
- -authkey "${APIKEY}" \
- -console \
  -game "garrysmod" \
+ -console -nobreakpad -usercon -secure \
+ -authkey "${APIKEY}" \
  +port ${PORT} \
  +clientport ${CLIENTPORT} \
  +maxplayers ${MAXPLAYERS} \
