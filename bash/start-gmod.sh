@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IP = curl -4 "https://djust.de/dns/ip"
+IP = `curl -4 "https://djust.de/dns/ip"`
 # update
 # ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit
 ln -s ${STEAMCMDDIR}/linux32/steamclient.so /home/steam/.steam/sdk32/steamclient.so
