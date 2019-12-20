@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ip = $(curl -4 "https://djust.de/dns/ip")
+IP = curl -4 "https://djust.de/dns/ip"
 # update
 # ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit
 ln -s ${STEAMCMDDIR}/linux32/steamclient.so /home/steam/.steam/sdk32/steamclient.so
@@ -20,7 +20,7 @@ echo "./srcds_run \
 -console -nobreakpad -usercon -secure \
 -authkey ${APIKEY} \
 -port ${PORT} \
--ip $ip \
+-ip $IP \
 +port ${PORT} \
 +clientport ${CLIENTPORT} \
 +maxplayers ${MAXPLAYERS} \
@@ -30,14 +30,14 @@ echo "./srcds_run \
 +sv_password ${PASSWD} \
 +host_workshop_collection ${WORKSHOPCOLLECTION}"
 
-echo $ip
+echo $IP
 
 ./srcds_run \
 -game garrysmod \
 -console -nobreakpad -usercon -secure \
 -authkey ${APIKEY} \
 -port ${PORT} \
--ip $ip \
+-ip $IP \
 +port ${PORT} \
 +clientport ${CLIENTPORT} \
 +maxplayers ${MAXPLAYERS} \
