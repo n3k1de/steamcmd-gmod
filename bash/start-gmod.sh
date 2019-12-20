@@ -19,7 +19,7 @@ echo "./srcds_run \
 -console -nobreakpad -usercon -secure \
 -authkey ${APIKEY} \
 -port ${PORT} \
--ip $(curl -4 "https://djust.de/dns/ip") \
+-ip $(curl -4 'https://djust.de/dns/ip') \
 +port ${PORT} \
 +clientport ${CLIENTPORT} \
 +maxplayers ${MAXPLAYERS} \
