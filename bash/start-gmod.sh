@@ -15,28 +15,33 @@ cd ${SERVERDIR}/gmod/
 # ./srcds_run -console -game garrysmod +sv_setsteamaccount ${SERVERACCOUNT} -authkey ${APIKEY} +host_workshop_collection ${WORKSHOPCOLLECTION} +port ${PORT} +tv_port ${PORTTV} +clientport ${CLIENTPORT} +maxplayers ${MAXPLAYERS} +gamemode ${GAMEMODE} +map ${MAP} -tickrate 66 -exec server.cfg
 # ./srcds_run -game garrysmod -ip 0.0.0.0 +sv_setsteamaccount ${SERVERACCOUNT} +maxplayers ${MAXPLAYERS} +gamemode ${GAMEMODE} +map ${MAP}
 echo "./srcds_run \
- -console \
- -game garrysmod \
- +maxplayers ${MAXPLAYERS} \
- +map ${MAP} \
- +sv_setsteamaccount ${SERVERACCOUNT} \
- +gamemode ${GAMEMODE} \
- +port ${PORT} \
- +clientport ${CLIENTPORT} \
- -authkey ${APIKEY} \
- +host_workshop_collection ${WORKSHOPCOLLECTION}"
+-game garrysmod \
+-console -nobreakpad -usercon -secure \
+-authkey ${APIKEY} \
+-port ${PORT} \
+-ip $(curl -4 "https://djust.de/dns/ip") \
++port ${PORT} \
++clientport ${CLIENTPORT} \
++maxplayers ${MAXPLAYERS} \
++map ${MAP} \
++sv_setsteamaccount ${SERVERACCOUNT} \
++gamemode ${GAMEMODE} \
++sv_password ${PASSWD} \
++host_workshop_collection ${WORKSHOPCOLLECTION}"
+
+echo $(curl -4 "https://djust.de/dns/ip")
 
 ./srcds_run \
- -game "garrysmod" \
- -console -nobreakpad -usercon -secure \
- -authkey "${APIKEY}" \
- -port ${PORT} \
- +ip "0.0.0.0" \
- +port ${PORT} \
- +clientport ${CLIENTPORT} \
- +maxplayers ${MAXPLAYERS} \
- +map "${MAP}" \
- +sv_setsteamaccount "${SERVERACCOUNT}" \
- +gamemode "${GAMEMODE}" \
- +sv_password "${PASSWD}" \
-# +host_workshop_collection "${WORKSHOPCOLLECTION}"
+-game garrysmod \
+-console -nobreakpad -usercon -secure \
+-authkey ${APIKEY} \
+-port ${PORT} \
+-ip $(curl -4 "https://djust.de/dns/ip") \
++port ${PORT} \
++clientport ${CLIENTPORT} \
++maxplayers ${MAXPLAYERS} \
++map ${MAP} \
++sv_setsteamaccount ${SERVERACCOUNT} \
++gamemode ${GAMEMODE} \
++sv_password ${PASSWD} \
+# +host_workshop_collection ${WORKSHOPCOLLECTION}
