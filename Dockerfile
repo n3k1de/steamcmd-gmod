@@ -28,7 +28,6 @@ RUN chmod 0775 /opt/ && chown steam.steam /opt/ && \
 COPY /data/ /opt/
 RUN chmod 0775 /opt/entrypoint.sh && chown steam.steam /opt/entrypoint.sh
 
-USER steam
 WORKDIR ${STEAMCMDDIR}
 VOLUME ${SERVERDIR}
 ENTRYPOINT ["/opt/entrypoint.sh"]
