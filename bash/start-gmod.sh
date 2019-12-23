@@ -56,4 +56,5 @@ cd ${SERVERDIR}/gmod/
 +sv_password ${PASSWD} \
 +hostname ${HOSTNAME} \
 +host_workshop_collection ${WORKSHOPCOLLECTION} \
+-net_port_try 1 \
 -exec server.cfg
