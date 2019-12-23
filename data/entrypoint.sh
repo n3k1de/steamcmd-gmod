@@ -1,5 +1,7 @@
-#!/bin/bash
-# ulimit -n 2048
+#!/bin/sh
+
+ulimit -n 2048
+IP="$(curl -4 https://djust.de/dns/ip)"
 cd ${STEAMCMDDIR}
 
 # wget -O start.sh https://play.djust.de/steamcmd/request/ttt/${HOSTNAME}/start.sh
