@@ -30,6 +30,7 @@ echo "./srcds_run \
 +sv_setsteamaccount ${SERVERACCOUNT} \
 +gamemode ${GAMEMODE} \
 +sv_password ${PASSWD} \
++hostname ${HOSTNAME} \
 +host_workshop_collection ${WORKSHOPCOLLECTION}"
 
 ./srcds_run \
@@ -45,5 +46,5 @@ echo "./srcds_run \
 +sv_setsteamaccount ${SERVERACCOUNT} \
 +gamemode ${GAMEMODE} \
 +sv_password ${PASSWD} \
-+hostname "GMod Server N77" \
++hostname ${HOSTNAME} \
 +host_workshop_collection ${WORKSHOPCOLLECTION}
