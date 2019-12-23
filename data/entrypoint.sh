@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ulimit -n 2048
+ulimit -n 8192‬
 IP="$(curl -4 https://djust.de/dns/ip)"
 cd ${STEAMCMDDIR}
 
