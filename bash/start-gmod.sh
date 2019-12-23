@@ -31,8 +31,6 @@ echo "./srcds_run \
 +sv_password ${PASSWD} \
 +host_workshop_collection ${WORKSHOPCOLLECTION}"
 
-echo $IP
-
 ./srcds_run \
 -game garrysmod \
 -console -nobreakpad -usercon -secure -debug \
