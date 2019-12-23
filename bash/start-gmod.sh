@@ -17,7 +17,7 @@ cd ${SERVERDIR}/gmod/
 # ./srcds_run -game garrysmod -ip 0.0.0.0 +sv_setsteamaccount ${SERVERACCOUNT} +maxplayers ${MAXPLAYERS} +gamemode ${GAMEMODE} +map ${MAP}
 echo "./srcds_run \
 -game garrysmod \
--console -nobreakpad -usercon -secure \
+-console -nobreakpad -usercon -secure -debug \
 -authkey ${APIKEY} \
 -port ${PORT} \
 -ip $IP \
@@ -34,7 +34,7 @@ echo $IP
 
 ./srcds_run \
 -game garrysmod \
--console -nobreakpad -usercon -secure \
+-console -nobreakpad -usercon -secure -debug \
 -authkey ${APIKEY} \
 -port ${PORT} \
 -ip $IP \
