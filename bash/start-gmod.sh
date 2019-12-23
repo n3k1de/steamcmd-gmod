@@ -31,7 +31,6 @@ echo "./srcds_run \
 +host_workshop_collection ${WORKSHOPCOLLECTION}"
 
 echo $IP
-gdb --version
 
 ./srcds_run \
 -game garrysmod \
