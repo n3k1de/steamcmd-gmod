@@ -47,4 +47,4 @@ echo "./srcds_run \
 +gamemode ${GAMEMODE} \
 +sv_password ${PASSWD} \
 +hostname ${HOSTNAME} \
-+host_workshop_collection ${WORKSHOPCOLLECTION}
+# +host_workshop_collection ${WORKSHOPCOLLECTION}
