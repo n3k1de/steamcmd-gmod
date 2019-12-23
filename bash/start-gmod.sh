@@ -6,7 +6,8 @@ IP="$(curl -4 https://djust.de/dns/ip)"
 # ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit
 ln -s ${STEAMCMDDIR}/linux32/steamclient.so /home/steam/.steam/sdk32/steamclient.so
 ${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
- +force_install_dir "${SERVERDIR}/gmod/" +app_update 4020 -validate \
+ +force_install_dir "${SERVERDIR}/gmod/" +app_update 4020 validate \
+ +force_install_dir "${SERVERDIR}/css" +app_update 232330 validate \
  +quit
 
 # +force_install_dir "${SERVERDIR}/css" +app_update 232330 -validate \
