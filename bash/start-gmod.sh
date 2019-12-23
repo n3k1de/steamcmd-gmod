@@ -5,7 +5,7 @@ ln -s ${STEAMCMDDIR}/linux32/steamclient.so /home/steam/.steam/sdk32/steamclient
 ${STEAMCMDDIR}/steamcmd.sh +@sSteamCmdForcePlatformType linux +login anonymous \
 +force_install_dir "${SERVERDIR}/gmod/" +app_update 4020 validate \
 +force_install_dir "${SERVERDIR}/css" +app_update 232330 validate \
-+force_install_dir "${SERVERDIR}/tf2" +app_update 232250 -validate \
++force_install_dir "${SERVERDIR}/tf2" +app_update 232250 validate \
 +quit
 
 # edit mount.cfg 
