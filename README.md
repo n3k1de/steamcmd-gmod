@@ -8,7 +8,7 @@
 ## Variables
 * __MAP:__ For exemple 'gm_construct' or the name of the workshop item.
 * __PASSWD:__ The Password needed to join the server.
-* __RCONPASSWD:__ The admin passwort. [here you find an password generator](https://passwordsgenerator.net)
+* __RCONPASSWD:__ The admin passwort. [here you find a password generator](https://passwordsgenerator.net)
 * __APIKEY:__ The steam webapi key (needed to load workshop collections). [get an webapi key here](https://steamcommunity.com/dev/apikey).
 * __WORKSHOPCOLLECTION:__ The id of the collection. _To be found in the URL of the collection._
 * __SERVERACCOUNT:__ Needed to connect to the server from the internet. [get an account key here](https://steamcommunity.com/dev/managegameservers).
