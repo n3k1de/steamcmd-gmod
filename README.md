@@ -37,7 +37,7 @@ docker run -d -t \
 * change a variable (reboot needed): `docker exec -e gmod MAP="*****"`
 
 ### Join the server
-* press the _'windows key'_ and _'R'_.
+* press the '_windows key_' and '_R_'.
 * put in: `steam://connect/<IP or Domain name>[:<port>][/<password>]`.
 * Replace in the IP or Domain name of the server.
   - as example: `steam://connect/exemple.com`
