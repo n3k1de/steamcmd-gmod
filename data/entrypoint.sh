@@ -10,7 +10,10 @@ then
 else
   echo "steamclient.so not found."
   su steam -c "ln -s ${STEAMCMDDIR}/linux32/steamclient.so ~/.steam/sdk32/steamclient.so"
-  echo "steamclient.so link created."
+  if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
+  then
+    echo "steamclient.so link created."
+  fi
 fi
 
 rm ./start.sh
