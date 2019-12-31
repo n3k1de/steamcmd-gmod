@@ -33,7 +33,7 @@ docker run -d -t \
   --name="gmod" djustde/gmod:latest
 ```
 * view the console output: `docker logs gmod`
-* run a command on the server: `docker exec gmod "say hi"`
+* run a command on the server: `docker exec gmod "say hi"` or `docker exec gmod "ulx adduser <name> superadmin"`
 * change a variable (reboot needed): `docker exec -e gmod MAP="*****"`
 
 ## Join the server
