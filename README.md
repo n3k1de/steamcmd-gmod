@@ -43,4 +43,4 @@ docker run -d -t \
   - as example: `steam://connect/exemple.com`
 * Replace the port or password if needed.
   - as example: `steam://connect/exemple.com:27015/server_password`
-* press return.
+* press return to join.
