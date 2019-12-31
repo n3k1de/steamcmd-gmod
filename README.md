@@ -21,7 +21,7 @@ docker run -d -t \
  -p 27005:27005/tcp \
  -p 27005:27005/udp \
  -p 27020:27020/udp \
- -e MAP="*****" \
+ -e MAP="gm_construct" \
  -e PASSWD="*****" \
  -e RCONPASSWD="*****" \
  -e APIKEY="*****" \
