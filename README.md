@@ -17,20 +17,21 @@
 * create your own server: 
 ```
 docker run -d -t \
- -p 27015:27015/tcp \
- -p 27015:27015/udp \
- -p 27005:27005/tcp \
- -p 27005:27005/udp \
- -p 27020:27020/udp \
- -e MAP="gm_construct" \
- -e PASSWD="*****" \
- -e RCONPASSWD="*****" \
- -e APIKEY="*****" \
- -e WORKSHOPCOLLECTION="*****" \
- -e SERVERACCOUNT="*****" \
- --hostname="gmod.exemple.com" \
- --name="gmod" djustde/gmod:latest
+  -p 27015:27015/tcp \
+  -p 27015:27015/udp \
+  -p 27005:27005/tcp \
+  -p 27005:27005/udp \
+  -p 27020:27020/udp \
+  -e SERVERNAME="*****" \
+  -e MAP="*****" \
+  -e PASSWD="*****" \
+  -e RCONPASSWD="*****" \
+  -e APIKEY="*****" \
+  -e WORKSHOPCOLLECTION="*****" \
+  -e SERVERACCOUNT="*****" \
+  --hostname="gmod.exemple.com" \
+  --name="gmod" djustde/gmod:latest
 ```
 * view the console output: `docker logs gmod`
 * run a command on the server: `docker exec gmod "say hi"`
-* change a variable (reboot neaded): `docker exec -e gmod PASSWD="*****"`
+* change a variable (reboot neaded): `docker exec -e gmod MAP="*****"`
