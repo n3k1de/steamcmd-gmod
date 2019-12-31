@@ -27,7 +27,7 @@ docker run -d -t \
  -e APIKEY="*****" \
  -e WORKSHOPCOLLECTION="*****" \
  -e SERVERACCOUNT="*****" \
- --hostname="csgo_gs.exemple.com" \
+ --hostname="gmod.exemple.com" \
  --name="gmod" djustde/gmod:latest
 ```
 * view the console output: `docker logs gmod`
