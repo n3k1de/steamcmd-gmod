@@ -6,9 +6,9 @@
 * [Team Fortress 2](https://store.steampowered.com/app/440/Team_Fortress_2/)
 
 ## Variables
-* __MAP:__ For exemple 'gm_construct' or the name of the workshop item.
+* __MAP:__ For example 'gm_construct' or the name of the workshop item.
 * __PASSWD:__ The Password needed to join the server.
-* __RCONPASSWD:__ The admin passwort. [here you find a password generator](https://passwordsgenerator.net)
+* __RCONPASSWD:__ The admin password. [here you find a password generator](https://passwordsgenerator.net)
 * __APIKEY:__ The steam webapi key (needed to load workshop collections). [get an webapi key here](https://steamcommunity.com/dev/apikey).
 * __WORKSHOPCOLLECTION:__ The id of the collection. _To be found in the URL of the collection._
 * __SERVERACCOUNT:__ Needed to connect to the server from the internet. [get an account key here](https://steamcommunity.com/dev/managegameservers).
@@ -24,7 +24,7 @@ docker run -d -t \
   -p 27020:27020/udp \
   -e SERVERNAME="*****" \
   -e MAP="*****" \
-  -e PASSWD="*****" \
+  -e PASSWD="" \
   -e RCONPASSWD="*****" \
   -e APIKEY="*****" \
   -e WORKSHOPCOLLECTION="*****" \
@@ -34,4 +34,13 @@ docker run -d -t \
 ```
 * view the console output: `docker logs gmod`
 * run a command on the server: `docker exec gmod "say hi"`
-* change a variable (reboot neaded): `docker exec -e gmod MAP="*****"`
+* change a variable (reboot needed): `docker exec -e gmod MAP="*****"`
+
+### Join the server
+* press the _'windows key'_ and _'R'_.
+* put in: `steam://connect/<IP or Domain name>[:<port>][/<password>]`.
+* Replace in the IP or Domain name of the server.
+  - as example: `steam://connect/exemple.com`
+* Replace the port or password if needed.
+  - as example: `steam://connect/exemple.com:27015/server_password`
+* press return.
