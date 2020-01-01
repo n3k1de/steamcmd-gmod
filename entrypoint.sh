@@ -16,6 +16,6 @@ else
   fi
 fi
 
-rm ./start.sh && curl -so start.sh https://raw.githubusercontent.com/djust-de/steamcmd/master/bash/garrysmod-start.sh
+rm ./start.sh && curl -so start.sh https://raw.githubusercontent.com/djust-de/steamcmd/master/bash/garrysmod.start.sh
 chmod -R 0775 ./start.sh && chown -R steam ./start.sh ${STEAMCMDDIR} ${SERVERDIR}
 su steam -c "./start.sh"
