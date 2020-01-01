@@ -29,7 +29,6 @@ docker run -d -t \
   -e APIKEY="*****" \
   -e WORKSHOPCOLLECTION="*****" \
   -e SERVERACCOUNT="*****" \
-  --hostname="gmod.exemple.com" \
   --name="gmod" djustde/steamcmd-gmod:latest
 ```
 * The advaced way:
@@ -55,20 +54,12 @@ docker run -d -t \
   --name="gmod" djustde/steamcmd-gmod:latest
 ```
 * view the console output: 
-```
-docker logs gmod
-```
+  * `docker logs gmod`
 * run a command on the server: 
-```
-docker exec gmod "say hi"
-```
-```
-docker exec gmod "ulx adduser <name> superadmin"
-```
+  * `docker exec gmod "say hi"`
+  * `docker exec gmod "ulx adduser <name> superadmin"`
 * change a variable (reboot needed): 
-```
-docker exec -e gmod MAP="*****"
-```
+  * `docker exec -e gmod MAP="*****"`
 
 ## Join the server
 * press the '_windows key_' and '_R_'.
