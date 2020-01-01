@@ -63,9 +63,9 @@ docker run -d -t \
 
 ## Join the server
 * press the '_windows key_' and '_R_'.
-* put in: `steam://connect/<IP or Domain name>[:<port>][/<password>]`.
+* type in: `steam://connect/<IP or Domain name>[:<port>][/<password>]`.
 * Replace in the IP or Domain name of the server.
-  - as example: `steam://connect/exemple.com`
+  * `steam://connect/exemple.com`
 * Replace the port or password if needed.
-  - as example: `steam://connect/exemple.com:27015/server_password`
+  * `steam://connect/exemple.com:27015/server_password`
 * press return to join.
