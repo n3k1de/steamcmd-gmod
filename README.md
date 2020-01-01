@@ -26,6 +26,20 @@ docker run -d -t \
   -p 27005:27005/tcp \
   -p 27005:27005/udp \
   -p 27020:27020/udp \
+  -e APIKEY="*****" \
+  -e WORKSHOPCOLLECTION="*****" \
+  -e SERVERACCOUNT="*****" \
+  --hostname="gmod.exemple.com" \
+  --name="gmod" djustde/steamcmd-gmod:latest
+```
+* The advaced way:
+```
+docker run -d -t \
+  -p 27015:27015/tcp \
+  -p 27015:27015/udp \
+  -p 27005:27005/tcp \
+  -p 27005:27005/udp \
+  -p 27020:27020/udp \
   -e PORT=27015 \
   -e CLIENTPORT=27005 \
   -e MAXPLAYERS=4 \
@@ -40,9 +54,21 @@ docker run -d -t \
   --hostname="gmod.exemple.com" \
   --name="gmod" djustde/steamcmd-gmod:latest
 ```
-* view the console output: `docker logs gmod`
-* run a command on the server: `docker exec gmod "say hi"` or `docker exec gmod "ulx adduser <name> superadmin"`
-* change a variable (reboot needed): `docker exec -e gmod MAP="*****"`
+* view the console output: 
+```
+docker logs gmod
+```
+* run a command on the server: 
+```
+docker exec gmod "say hi"
+```
+```
+docker exec gmod "ulx adduser <name> superadmin"
+```
+* change a variable (reboot needed): 
+```
+docker exec -e gmod MAP="*****"
+```
 
 ## Join the server
 * press the '_windows key_' and '_R_'.
