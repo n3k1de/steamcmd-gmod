@@ -25,7 +25,6 @@ docker run -d -t \
   -p 27015:27015/udp \
   -p 27005:27005/tcp \
   -p 27005:27005/udp \
-  -p 27020:27020/udp \
   -e APIKEY="*****" \
   -e WORKSHOPCOLLECTION="*****" \
   -e SERVERACCOUNT="*****" \
@@ -38,7 +37,6 @@ docker run -d -t \
   -p 27015:27015/udp \
   -p 27005:27005/tcp \
   -p 27005:27005/udp \
-  -p 27020:27020/udp \
   -e PORT=27015 \
   -e CLIENTPORT=27005 \
   -e MAXPLAYERS=4 \
