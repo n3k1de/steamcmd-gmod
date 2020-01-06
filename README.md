@@ -28,7 +28,7 @@ docker run -d -t \
   -e APIKEY="*****" \
   -e WORKSHOPCOLLECTION="*****" \
   -e SERVERACCOUNT="*****" \
-  --name="gmod" djustde/steamcmd-gmod:latest
+  --name="gmod" netherkids/gmod:latest
 ```
 * The advaced way:
 ```
@@ -49,7 +49,7 @@ docker run -d -t \
   -e WORKSHOPCOLLECTION="*****" \
   -e SERVERACCOUNT="*****" \
   --hostname="gmod.exemple.com" \
-  --name="gmod" djustde/steamcmd-gmod:latest
+  --name="gmod" netherkids/gmod:latest
 ```
 * view the console output: 
   * `docker logs gmod`
