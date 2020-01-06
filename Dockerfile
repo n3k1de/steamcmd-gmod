@@ -1,5 +1,5 @@
 FROM netherkids/steamcmd:buster
-MAINTAINER DJustDE <docker@djust.de>
+MAINTAINER NetherKidsDE <git@netherkids.de>
 
 EXPOSE 27015/tcp 27015/udp 27005/tcp 27005/udp 27020/udp
 
