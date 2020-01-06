@@ -20,7 +20,7 @@ ENV SERVERACCOUNT=""
 RUN chmod 0775 /opt/ && chown steam.steam /opt/ && \
     su steam -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit"
 
-COPY --chown=steam:steam /entrypoint.sh /opt/
+COPY --chown=steam:steam /entrypoint /
 # RUN chmod 0775 /opt/entrypoint.sh && chown steam.steam /opt/entrypoint.sh
 
 WORKDIR ${STEAMCMDDIR}
