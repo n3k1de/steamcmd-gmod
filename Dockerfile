@@ -25,4 +25,4 @@ COPY --chown=steam:steam /entrypoint /
 
 WORKDIR ${STEAMCMDDIR}
 VOLUME ${SERVERDIR}
-ENTRYPOINT ["/entrypoint"]
+ENTRYPOINT ["/entrypoint.sh"]
