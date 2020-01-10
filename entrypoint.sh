@@ -1,7 +1,6 @@
 #!/bin/sh
 
 ulimit -n 2048‬
-IP="$(curl -s4 http://v4.ipv6-test.com/api/myip.php)"
 cd ${STEAMCMDDIR}
 
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
@@ -71,7 +70,7 @@ su steam -c "cd ${SERVERDIR}/gmod/
   -console -nobreakpad -usercon -secure -debug \
   -authkey ${APIKEY} \
   -port ${PORT} \
-  -ip $IP \
+  -ip "localhost" \
   +port ${PORT} \
   +clientport ${CLIENTPORT} \
   +maxplayers ${MAXPLAYERS} \
