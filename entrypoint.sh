@@ -80,7 +80,7 @@ su steam -c "cd ${SERVERDIR}/gmod/
   +gamemode ${GAMEMODE} \
   +sv_password ${PASSWD} \
   +rcon_password ${RCONPASSWD} \
-  +hostname ${HOSTNAME} \
+  +hostname ${SERVERNAME} \
   +host_workshop_collection ${WORKSHOPCOLLECTION} \
   -net_port_try 1 \
   -exec server.cfg"
