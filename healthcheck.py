@@ -265,15 +265,14 @@ if __name__ == '__main__':
 	query = SourceQuery(sys.argv[1], port)
 	try:
 		info = query.get_info()
-	except Exception as e:
-		print("OS error: {0}".format(e))
-		print(False)
-		requests.request("POST", "https://api.djust.de/server/", data=json.dumps(e))
-		exit(1)
-	else:
 		info['playerList'] = query.get_players()
 		requests.request("POST", "https://api.djust.de/server/", data=json.dumps(info))
 		query.disconnect()
 		query = False
 		print(True)
-		exit(0)
+	except Exception as e:
+		requests.request("POST", "https://api.djust.de/server/", data=json.dumps(e))
+		print(e)
+		exit(1)
+	exit(0)
+		
