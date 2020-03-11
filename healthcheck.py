@@ -1,9 +1,5 @@
 import socket, struct, sys, time, requests, json
 
-__author__ = 'Dasister'
-__site__ = 'http://21games.ru'
-__description__ = 'Simple Query Class for VALVe servers'
-
 A2S_INFO = b'\xFF\xFF\xFF\xFFTSource Engine Query\x00'
 A2S_PLAYERS = b'\xFF\xFF\xFF\xFF\x55'
 A2S_RULES = b'\xFF\xFF\xFF\xFF\x56'
