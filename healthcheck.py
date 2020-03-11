@@ -44,7 +44,7 @@ class SourceQuery(object):
 		try:
 			data = self.__sock.recv(4096)
 		except:
-			return False
+			pass
 
 		after = time.time()
 		data = data[4:]
@@ -263,10 +263,12 @@ if __name__ == '__main__':
 		port = int(sys.argv[2])
 
 	query = SourceQuery(sys.argv[1], port)
-	info = query.get_info()
-	if(info == False):
+	try:
+		info = query.get_info()
+	except Exception as e:
+		print("OS error: {0}".format(e))
 		print(False)
-		requests.request("POST", "https://api.djust.de/server/", data=json.dumps(info))
+		requests.request("POST", "https://api.djust.de/server/", data=json.dumps(e))
 		exit(1)
 	else:
 		info['playerList'] = query.get_players()
