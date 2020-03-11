@@ -265,18 +265,13 @@ if __name__ == '__main__':
 	query = SourceQuery(sys.argv[1], port)
 	info = query.get_info()
 	if(info == False):
-		url = "https://api.djust.de/server/"
-		requests.request("POST", url, data=json.dumps({}))
 		print(False)
+		requests.request("POST", "https://api.djust.de/server/", data=json.dumps(info))
 		exit(1)
 	else:
 		info['playerList'] = query.get_players()
-
+		requests.request("POST", "https://api.djust.de/server/", data=json.dumps(info))
 		query.disconnect()
 		query = False
-		
-		url = "https://api.djust.de/server/"
-		requests.request("POST", url, data=json.dumps(info))
 		print(True)
-
 		exit(0)
