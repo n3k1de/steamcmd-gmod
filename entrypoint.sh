@@ -71,7 +71,7 @@ su steam -c "cd ${SERVERDIR}/gmod/
   -console -nobreakpad -usercon -secure -debug \
   -authkey ${APIKEY} \
   -port ${PORT} \
-  -ip "127.0.0.1" \
+  -ip 127.0.0.1 \
   +port ${PORT} \
   +clientport ${CLIENTPORT} \
   +maxplayers ${MAXPLAYERS} \
