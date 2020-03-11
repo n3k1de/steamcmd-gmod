@@ -18,6 +18,9 @@ ENV GAME="gmod" \
     SERVERACCOUNT=""
 
 COPY --chown=steam:steam /entrypoint.sh /
+COPY --chown=steam:steam /healthcheck.py /
+
+HEALTHCHECK --interval=1m --timeout=5s CMD python3 /healthcheck.py loaclhost ${PORT} || exit 1
 
 RUN chmod 0775 /opt/ /entrypoint.sh && chown steam.steam /opt/ /entrypoint.sh && \
     su steam -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit"
