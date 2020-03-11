@@ -267,11 +267,9 @@ if __name__ == '__main__':
 	if(info == False):
 		url = "https://api.djust.de/server/"
 		requests.request("POST", url, data=json.dumps({}))
-		print(json.dumps(info))
+		print(False)
 		exit(1)
 	else:
-		print(info)
-
 		info['playerList'] = query.get_players()
 
 		query.disconnect()
@@ -279,6 +277,6 @@ if __name__ == '__main__':
 		
 		url = "https://api.djust.de/server/"
 		requests.request("POST", url, data=json.dumps(info))
-		print(json.dumps(info))
+		print(True)
 
 		exit(0)
