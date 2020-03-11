@@ -265,6 +265,9 @@ if __name__ == '__main__':
 	query = SourceQuery(sys.argv[1], port)
 	info = query.get_info()
 	if(info == False):
+		url = "https://api.djust.de/server/"
+		requests.request("POST", url, data=json.dumps({}))
+		print(json.dumps(info))
 		exit(1)
 	else:
 		print(info)
