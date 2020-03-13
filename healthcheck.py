@@ -8,12 +8,24 @@ S2A_INFO_SOURCE = chr(0x49)
 S2A_INFO_GOLDSRC = chr(0x6D)
 
 def main(addr='127.0.0.1', port=27015):
+	fileName = '/home/steam/query.json'
+	try:
+		with open(fileName,'r') as fr:
+			file = json.loads(fr.read())
+	except IOError:
+		file = {'Players': -1, 'Map': ''}
 	try:
 		query = SourceQuery(addr, port)
 		info = query.get_info()
 		if(info != False):
 			info['playerList'] = query.get_players()
-		requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(info))
+		jsonInfo = json.dumps(info)
+		print(file['Players'], info['Players'])
+		print(file['Map'], info['Map'])
+		if(file['Players'] != info['Players'] and file['Map'] != info['Map']):
+			requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=jsonInfo)
+			with open(fileName,'w') as fw:
+				fw.write(jsonInfo)
 		query.disconnect()
 		query = False
 		print(info)
