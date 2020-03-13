@@ -50,7 +50,6 @@ docker run -d -t \
   -e APIKEY="*****" \
   -e WORKSHOPCOLLECTION="*****" \
   -e SERVERACCOUNT="*****" \
-  --hostname="gmod.exemple.com" \
   --name="gmod" netherkids/gmod:latest
 ```
 * view the console output: 
