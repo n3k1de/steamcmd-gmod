@@ -252,12 +252,7 @@ class SourceQuery(object):
 				i += 1
 		return s, data[i + 1:]
 
-if __name__ == '__main__':
-	if(len(sys.argv) < 3):
-		port = 27015
-	else:
-		port = int(sys.argv[2])
-
+def main(addr='127.0.0.1', port=27015):
 	query = SourceQuery(sys.argv[1], port)
 	try:
 		info = query.get_info()
@@ -272,4 +267,6 @@ if __name__ == '__main__':
 		query = False
 		print(True)
 		exit(0)
-		
+	
+if __name__ == '__main__':
+	main(sys.argv[1], sys.argv[2])
