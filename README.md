@@ -6,6 +6,7 @@
 * [Team Fortress 2](https://store.steampowered.com/app/440/Team_Fortress_2/)
 
 ## Variables
+* __SERVERNAME__: the hostname of the server. _With this name the server can be found in the server in the steam list._
 * __PORT:__ Sets port for a listen server. _Default is 27015._
 * __CLIENTPORT:__ Sets the client port. Specifies which port to use to communicate with a server. _Default is 27005._
 * __MAXPLAYERS:__ Set the maximum players allowed to join the server. This does the same as the maxplayers convar, the maximum you can set it to is limited by the game/mod
@@ -37,6 +38,7 @@ docker run -d -t \
   -p 27015:27015/udp \
   -p 27005:27005/tcp \
   -p 27005:27005/udp \
+  -e SERVERNAME="docker gmod server" \
   -e PORT=27015 \
   -e CLIENTPORT=27005 \
   -e MAXPLAYERS=4 \
