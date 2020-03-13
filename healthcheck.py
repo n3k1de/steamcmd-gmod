@@ -7,7 +7,7 @@ A2S_RULES = b'\xFF\xFF\xFF\xFF\x56'
 S2A_INFO_SOURCE = chr(0x49)
 S2A_INFO_GOLDSRC = chr(0x6D)
 
-def main(addr='127.0.0.1', port=27015):
+def main(addr='127.0.0.2', port=27015):
 	try:
 		query = SourceQuery(addr, port)
 		info = query.get_info()
