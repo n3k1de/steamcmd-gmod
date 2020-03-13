@@ -14,12 +14,12 @@ def main(addr='127.0.0.1', port=27015):
 		if(info != False):
 			info['playerList'] = query.get_players()
 		jsonInfo = json.dumps(info)
-		with open('sourceQuery.json') as f:
+		with open('/opt/sourceQuery.json') as f:
 			jsonFile = json.load(f)
 		
 		if(jsonFile['Players'] != jsonInfo['Players'] and jsonFile['Map'] != jsonInfo['Map']):
 			requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=jsonInfo)
-			with open("sourceQuery.json",'w') as f:
+			with open("/opt/sourceQuery.json",'w') as f:
 				f.write(jsonInfo)
 		query.disconnect()
 		query = False
