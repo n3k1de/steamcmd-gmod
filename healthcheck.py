@@ -7,6 +7,23 @@ A2S_RULES = b'\xFF\xFF\xFF\xFF\x56'
 S2A_INFO_SOURCE = chr(0x49)
 S2A_INFO_GOLDSRC = chr(0x6D)
 
+def main(addr='127.0.0.1', port=27015):
+	try:
+		query = SourceQuery(addr, port)
+		info = query.get_info()
+		if(info != False):
+			info['playerList'] = query.get_players()
+		requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(info))
+		query.disconnect()
+		query = False
+		print(info)
+		return 0
+	except Exception as e:
+		requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(e))
+		query.disconnect()
+		query = False
+		print(info)
+		return 1
 
 class SourceQuery(object):
 	is_third = False
@@ -251,24 +268,6 @@ class SourceQuery(object):
 				s += chr(data[i])
 				i += 1
 		return s, data[i + 1:]
-
-def main(addr='127.0.0.1', port=27015):
-	try:
-		query = SourceQuery(addr, port)
-		info = query.get_info()
-		if(info != False):
-			info['playerList'] = query.get_players()
-		requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(info))
-		query.disconnect()
-		query = False
-		print(info)
-		return 0
-	except Exception as e:
-		requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(e))
-		query.disconnect()
-		query = False
-		print(info)
-		return 1
 	
 if __name__ == '__main__':
 	exit(main())
