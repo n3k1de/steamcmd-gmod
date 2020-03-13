@@ -13,14 +13,7 @@ def main(addr='127.0.0.1', port=27015):
 		info = query.get_info()
 		if(info != False):
 			info['playerList'] = query.get_players()
-		jsonInfo = json.dumps(info)
-		with open('/home/steam/query.json') as f:
-			jsonFile = json.load(f)
-		
-		if(jsonFile['Players'] != jsonInfo['Players'] and jsonFile['Map'] != jsonInfo['Map']):
-			requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=jsonInfo)
-			with open("/home/steam/query.json",'w') as f:
-				f.write(jsonInfo)
+		requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(info))
 		query.disconnect()
 		query = False
 		print(info)
