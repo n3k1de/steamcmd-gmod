@@ -13,7 +13,14 @@ def main(addr='127.0.0.1', port=27015):
 		info = query.get_info()
 		if(info != False):
 			info['playerList'] = query.get_players()
-		requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(info))
+		json = f.read(4)
+		with open('sourceQuery.json') as f:
+			jsonFile = json.load(f)
+		
+		if(jsonFile['Players'] != json['Players'] and jsonFile['Map'] != json['Map']):
+			requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(info))
+			with open("sourceQuery.json",'w') as f:
+				f.write(json.dumps(info))
 		query.disconnect()
 		query = False
 		print(info)
@@ -53,19 +60,16 @@ class SourceQuery(object):
 		if self.__sock is None:
 			self.connect()
 		self.__sock.send(A2S_INFO)
-		before = time.time()
 		try:
 			data = self.__sock.recv(4096)
 		except:
 			return False
 
-		after = time.time()
 		data = data[4:]
 
 		result = {}
 
 		header, data = self.__get_byte(data)
-		result['Ping'] = int((after - before) * 1000)
 		if chr(header) == S2A_INFO_SOURCE:
 			result['Protocol'], data = self.__get_byte(data)
 			result['Hostname'], data = self.__get_string(data)
@@ -270,4 +274,4 @@ class SourceQuery(object):
 		return s, data[i + 1:]
 	
 if __name__ == '__main__':
-	exit(main(socket.gethostname()))
+	exit(main(socket.gethostname(), sys.argv[1]))
