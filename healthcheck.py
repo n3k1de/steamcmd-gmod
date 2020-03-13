@@ -40,7 +40,7 @@ class SourceQuery(object):
 		try:
 			data = self.__sock.recv(4096)
 		except:
-			pass
+			return False
 
 		after = time.time()
 		data = data[4:]
@@ -253,20 +253,22 @@ class SourceQuery(object):
 		return s, data[i + 1:]
 
 def main(addr='127.0.0.1', port=27015):
-	query = SourceQuery(sys.argv[1], port)
 	try:
+		query = SourceQuery(addr, port)
 		info = query.get_info()
-	except Exception as e:
-		requests.request("POST", "https://api.djust.de/server/", data=json.dumps(e))
-		print(e)
-		exit(1)
-	finally:
-		info['playerList'] = query.get_players()
-		requests.request("POST", "https://api.djust.de/server/", data=json.dumps(info))
+		if(info != False):
+			info['playerList'] = query.get_players()
+		requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(info))
 		query.disconnect()
 		query = False
-		print(True)
-		exit(0)
+		print(info)
+		return 0
+	except Exception as e:
+		requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=json.dumps(e))
+		query.disconnect()
+		query = False
+		print(info)
+		return 1
 	
 if __name__ == '__main__':
-	main('game.djust.de')
+	exit(main('game.djust.de'))
