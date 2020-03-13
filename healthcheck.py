@@ -271,4 +271,4 @@ def main(addr='127.0.0.1', port=27015):
 		return 1
 	
 if __name__ == '__main__':
-	exit(main('game.djust.de'))
+	exit(main())
