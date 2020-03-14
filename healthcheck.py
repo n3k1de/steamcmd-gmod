@@ -7,8 +7,7 @@ A2S_RULES = b'\xFF\xFF\xFF\xFF\x56'
 S2A_INFO_SOURCE = chr(0x49)
 S2A_INFO_GOLDSRC = chr(0x6D)
 
-def main(addr='127.0.0.1', port=27015):
-	fileName = '/home/steam/query.json'
+def main(addr='127.0.0.1', port=27015, fileName='/home/steam/query.json'):
 	try:
 		with open(fileName,'r') as fr:
 			file = json.loads(fr.read())
@@ -17,15 +16,23 @@ def main(addr='127.0.0.1', port=27015):
 	try:
 		query = SourceQuery(addr, port)
 		info = query.get_info()
+		jsonInfo = json.dumps(info)
 		if(info != False):
 			info['playerList'] = query.get_players()
-		jsonInfo = json.dumps(info)
-		print(file['Players'], info['Players'])
-		print(file['Map'], info['Map'])
-		if(file['Players'] != info['Players'] and file['Map'] != info['Map']):
-			requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=jsonInfo)
-			with open(fileName,'w') as fw:
-				fw.write(jsonInfo)
+			if(file != False):
+				if(file['Players'] != info['Players'] and file['Map'] != info['Map']):
+					requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=jsonInfo)
+					with open(fileName,'w') as fw:
+						fw.write(jsonInfo)
+			else:
+				requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=jsonInfo)
+				with open(fileName,'w') as fw:
+					fw.write(jsonInfo)
+		else:
+			if(file != False):
+				requests.request("POST", "https://api.djust.de/server/{host}".format(host=socket.gethostname()), data=jsonInfo)
+				with open(fileName,'w') as fw:
+					fw.write(jsonInfo)
 		query.disconnect()
 		query = False
 		print(info)
@@ -277,6 +284,6 @@ class SourceQuery(object):
 				s += chr(data[i])
 				i += 1
 		return s, data[i + 1:]
-	
+
 if __name__ == '__main__':
-	exit(main(socket.gethostname(), sys.argv[1]))
+	exit(main(socket.gethostname(), sys.argv[1], '/home/steam/query.json'))
