@@ -284,6 +284,6 @@ class SourceQuery(object):
 				s += chr(data[i])
 				i += 1
 		return s, data[i + 1:]
-
+	
 if __name__ == '__main__':
 	exit(main(socket.gethostname(), sys.argv[1], '/home/steam/query.json'))
