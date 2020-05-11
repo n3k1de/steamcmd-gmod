@@ -137,7 +137,8 @@ class SourceQuery(object):
 		self.__sock.send(SourceQuery.A2S_PLAYERS + b'0xFFFFFFFF')
 		try:
 			data = self.__sock.recv(4096)
-		except:
+		except Exception as e:
+			print(e)
 			return False
 
 		print(data)
