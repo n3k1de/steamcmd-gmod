@@ -149,10 +149,10 @@ class SourceQuery(object):
 		# Retrieve information about the players currently on the server.
 		if self.__sock is None:
 			self.connect()
+		print(self.__challenge, self.__challenge is None)
 		if self.__challenge is None:
 			self.get_challenge()
 
-		print(SourceQuery.A2S_PLAYERS, self.__challenge)
 		self.__sock.send(SourceQuery.A2S_PLAYERS + self.__challenge)
 		try:
 			data = self.__sock.recv(4096)
