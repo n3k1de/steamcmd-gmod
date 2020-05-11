@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ulimit -n 2048‬
+ulimit -n "${ULIMIT}"
 cd ${STEAMCMDDIR}
 chown steam.steam -R /opt/
 
