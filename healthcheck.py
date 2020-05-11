@@ -11,9 +11,9 @@ def main(addr='localhost', port=27015):
 		# print( players )
 		query.disconnect()
 	except socket.error as e:
-		with open("/opt/server/socket.log", "a+") as ffile:
-			ffile.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(e))
-			ffile.write('\n')
+		with open("/opt/server/socket.log", "a+") as f:
+			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(e))
+			f.write('\n')
 
 class SourceQuery(object):
 	is_third = False
