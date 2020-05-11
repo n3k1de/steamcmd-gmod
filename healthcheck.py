@@ -4,10 +4,12 @@ s.settimeout(9.0)
 s.connect((socket.gethostbyname(socket.gethostname()), int(sys.argv[1])))
 try:
 	s.send(b'\xFF\xFF\xFF\xFFTSource Engine Query\x00')
-	s.recv(4096)
+	r = s.recv(4096)
+	with open("/opt/server/socket.log", "a+") as ffile:
+		ffile.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+':\t'+str(r))
+		ffile.write('\n')
 except socket.error as e:
 	with open("/opt/server/socket.log", "a+") as ffile:
-		# ffile.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+':\t'+str(e))
-		ffile.write(e)
+		ffile.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+':\t'+str(e))
 		ffile.write('\n')
 	raise SystemExit(1)
