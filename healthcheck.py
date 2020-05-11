@@ -8,20 +8,20 @@ def main(addr='localhost', port=27015):
 		json.dump(info, open("/opt/server/server.json", "w"))
 		json.dump(players, open("/opt/server/players.json", "w"))
 		with open("/opt/server/socket.log", "a+") as f:
-			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(0))
+			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t0)
 			f.write('\n')
 		query.disconnect()
 	except socket.error as e:
 		with open("/opt/server/socket.log", "a+") as f:
-			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(1)+'\t'+str(e))
+			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t1\t'+str(e))
 			f.write('\n')
-		print(addr, port, e)
+		print(addr, port, 1, e)
 		raise SystemExit(1)
 	except Exception as e:
 		with open("/opt/socket.log", "a+") as f:
-			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(2)+'\t'+str(e))
+			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t2\t'+str(e))
 			f.write('\n')
-		print(addr, port, e)
+		print(addr, port, 2, e)
 		raise SystemExit(1)
 
 class SourceQuery(object):
