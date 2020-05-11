@@ -7,6 +7,6 @@ try:
 	s.recv(4096)
 except socket.error as e:
 	with open("/opt/server/socket.log", "a+") as ffile:
-		ffile.write(time.strftime('%Y-%m-%d %H:%M:%S')+':\t'+e)
+		ffile.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+':\t'+str(e))
 		ffile.write('\n')
 	raise SystemExit(1)
