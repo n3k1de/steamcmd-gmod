@@ -4,7 +4,7 @@ ulimit -n "${ULIMIT}"
 cd ${STEAMCMDDIR}
 chown steam.steam -R /opt/
 
-echo -n >> /opt/server/socket.log && chmod 777 /opt/server/socket.log
+echo -n >> /opt/server/socket.log && chmod 777 /opt/server/socket.log && chown "${USER}":"${GROUP}" /opt/server/socket.log
 
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
 then
