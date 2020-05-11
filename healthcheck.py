@@ -15,10 +15,12 @@ def main(addr='localhost', port=27015):
 		with open("/opt/server/socket.log", "a+") as f:
 			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(1)+'\t'+str(e))
 			f.write('\n')
+		raise SystemExit(1)
 	except Exception as e:
 		with open("/opt/socket.log", "a+") as f:
 			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(2)+'\t'+str(e))
 			f.write('\n')
+		raise SystemExit(1)
 
 class SourceQuery(object):
 	is_third = False
