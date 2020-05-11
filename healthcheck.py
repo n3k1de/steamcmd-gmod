@@ -7,12 +7,13 @@ def main(addr='localhost', port=27015):
 		players = query.get_players()
 		json.dump(info, open("/opt/server/server.json", "w"))
 		json.dump(players, open("/opt/server/players.json", "w"))
-		# print( info )
-		# print( players )
+		with open("/opt/server/socket.log", "a+") as f:
+			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(True))
+			f.write('\n')
 		query.disconnect()
 	except socket.error as e:
 		with open("/opt/server/socket.log", "a+") as f:
-			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(e))
+			f.write(str(time.strftime('%Y-%m-%d %H:%M:%S'))+'\t\t'+str(False)+'\t'+str(e))
 			f.write('\n')
 
 class SourceQuery(object):
