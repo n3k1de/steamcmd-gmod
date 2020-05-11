@@ -137,10 +137,10 @@ class SourceQuery(object):
 		self.__sock.send(SourceQuery.A2S_PLAYERS + b'0xFFFFFFFF')
 		try:
 			data = self.__sock.recv(4096)
-			print(data)
 		except:
 			return False
 
+		print(data)
 		self.__challenge = data[5:]
 
 		return True
@@ -151,7 +151,7 @@ class SourceQuery(object):
 			self.connect()
 		print(self.__challenge, self.__challenge is None)
 		if self.__challenge is None:
-			self.get_challenge()
+			print(':>', self.get_challenge() )
 
 		self.__sock.send(SourceQuery.A2S_PLAYERS + self.__challenge)
 		try:
