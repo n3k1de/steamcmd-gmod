@@ -1,12 +1,12 @@
-import socket, sys, time, json
+import socket, struct, sys, time, json
 
 def main(addr='localhost', port=27015):
 	try:
 		query = SourceQuery(addr, port)
 		info = query.get_info()
 		players = query.get_players()
-		json.dumps(info, open("/opt/server/server.json", "w"))
-		json.dumps(players, open("/opt/server/players.json", "w"))
+		json.dump(info, open("/opt/server.json", "w"))
+		json.dump(players, open("/opt/players.json", "w"))
 		# print( info )
 		# print( players )
 		query.disconnect()
