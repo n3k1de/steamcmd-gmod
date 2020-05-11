@@ -5,7 +5,6 @@ s.connect((socket.gethostbyname(socket.gethostname()), int(sys.argv[1])))
 try:
 	s.send(b'\xFF\xFF\xFF\xFFTSource Engine Query\x00')
 	s.recv(4096)
-	
 except socket.error as e:
 	with open("/opt/server/socket.txt", "a+") as ffile:
 		ffile.write(time.strftime('%Y-%m-%d %H:%M:%S')+':\t'+e)
