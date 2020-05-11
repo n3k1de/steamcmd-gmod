@@ -2,10 +2,8 @@ import socket, struct, sys, time, json
 
 def main(addr='localhost', port=27015):
 	query = SourceQuery(addr, port)
-	info = query.get_info()
-	players = query.get_players()
-	json.dump(info, open("/opt/server/server.json", "w"))
-	json.dump(players, open("/opt/server/players.json", "w"))
+	json.dump(query.get_info(), open("/opt/server/server.json", "w"))
+	json.dump(query.get_players(), open("/opt/server/players.json", "w"))
 	query.disconnect()
 
 class SourceQuery(object):
@@ -133,12 +131,13 @@ class SourceQuery(object):
 		return result
 
 	def get_challenge(self):
-		""" Get challenge number for A2S_PLAYER and A2S_RULES queries. """
+		# Get challenge number for A2S_PLAYER and A2S_RULES queries.
 		if self.__sock is None:
 			self.connect()
 		self.__sock.send(SourceQuery.A2S_PLAYERS + b'0xFFFFFFFF')
 		try:
 			data = self.__sock.recv(4096)
+			print(data)
 		except:
 			return False
 
@@ -147,7 +146,7 @@ class SourceQuery(object):
 		return True
 
 	def get_players(self):
-		""" Retrieve information about the players currently on the server. """
+		# Retrieve information about the players currently on the server.
 		if self.__sock is None:
 			self.connect()
 		if self.__challenge is None:
