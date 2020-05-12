@@ -216,8 +216,8 @@ class SourceQuery(object):
 		# Server sends incomplete packets. Ignore "NumPackets" value.
 		while 1:
 			try:
-				rule_name, data = self.__get_string(data)
 				rule_value, data = self.__get_string(data)
+				rule_name, data = self.__get_string(data)
 				if rule_value:
 					result[rule_value] = rule_name
 			except:
