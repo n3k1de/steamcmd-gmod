@@ -2,10 +2,13 @@ import socket, struct, sys, time, json
 
 def main(addr='localhost', port=27015):
 	query = SourceQuery(addr, port)
-	json.dump(query.get_info(), open("/opt/server/info.json", "w"))
-	json.dump(query.get_players(), open("/opt/server/players.json", "w"))
-	json.dump(query.get_rules(), open("/opt/server/rules.json", "w"))
+	data = {
+		'info':query.get_info(),
+		'players':query.get_players(),
+		'rules':query.get_rules(),
+	}
 	query.disconnect()
+	json.dump(data, open("/opt/server/query.json", "w"))
 
 class SourceQuery(object):
 	is_third = False
