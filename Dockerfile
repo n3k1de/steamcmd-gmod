@@ -24,9 +24,7 @@ HEALTHCHECK  --interval=120s --timeout=60s CMD python3 /healthcheck.py ${PORT}
 
 RUN chmod 0775 /opt/ /entrypoint.sh && chown ${USER}.${GROUP} /opt/ /entrypoint.sh && \
     su ${USER} -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
-    echo -n >> /opt/server/info.json && chmod 777 /opt/server/info.json && chown "${USER}":"${GROUP}" /opt/server/info.json && \
-    echo -n >> /opt/server/players.json && chmod 777 /opt/server/players.json && chown "${USER}":"${GROUP}" /opt/server/players.json && \
-    echo -n >> /opt/server/rules.json && chmod 777 /opt/server/rules.json && chown "${USER}":"${GROUP}" /opt/server/rules.json
+    echo -n >> /opt/server/query.json && chmod 777 /opt/server/query.json && chown ${USER}:${GROUP} /opt/server/query.json
 
 WORKDIR ${STEAMCMDDIR}
 VOLUME ${SERVERDIR}
