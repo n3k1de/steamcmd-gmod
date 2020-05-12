@@ -23,8 +23,7 @@ COPY --chown=${USER}:${GROUP} /healthcheck.py /
 HEALTHCHECK  --interval=120s --timeout=60s CMD python3 /healthcheck.py ${PORT}
 
 RUN chmod 0775 /opt/ /entrypoint.sh && chown ${USER}.${GROUP} /opt/ /entrypoint.sh && \
-    su ${USER} -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
-    echo -n >> /home/steam/query.json && chmod 777 /home/steam/query.json
+    su ${USER} -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit"
 
 WORKDIR ${STEAMCMDDIR}
 VOLUME ${SERVERDIR}
