@@ -1,4 +1,4 @@
-FROM netherkids/steamcmd
+FROM netherkids/steamcmd:stable
 LABEL version="0.0.1" maintainer="NetherKids <docker@netherkids.de>"
 
 EXPOSE 27015/tcp 27015/udp 27005/tcp 27005/udp 27020/udp
