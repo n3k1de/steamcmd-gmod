@@ -4,8 +4,9 @@ ulimit -n "${ULIMIT}"
 cd ${STEAMCMDDIR}
 chown steam.steam -R /opt/
 
-echo -n >> /opt/server/server.json && chmod 777 /opt/server/server.json && chown "${USER}":"${GROUP}" /opt/server/server.json
+echo -n >> /opt/server/info.json && chmod 777 /opt/server/info.json && chown "${USER}":"${GROUP}" /opt/server/info.json
 echo -n >> /opt/server/players.json && chmod 777 /opt/server/players.json && chown "${USER}":"${GROUP}" /opt/server/players.json
+echo -n >> /opt/server/rules.json && chmod 777 /opt/server/rules.json && chown "${USER}":"${GROUP}" /opt/server/rules.json
 
 if [ -e "/home/steam/.steam/sdk32/steamclient.so" ]
 then
