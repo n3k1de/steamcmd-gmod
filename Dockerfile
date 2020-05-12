@@ -17,13 +17,13 @@ ENV GAME="gmod" \
     APIKEY="" \
     SERVERACCOUNT=""
 
-COPY --chown=steam:steam /entrypoint.sh /
-COPY --chown=steam:steam /healthcheck.py /
+COPY --chown=${USER}:${GROUP} /entrypoint.sh /
+COPY --chown=${USER}:${GROUP} /healthcheck.py /
 
 HEALTHCHECK  --interval=120s --timeout=60s CMD python3 /healthcheck.py ${PORT}
 
-RUN chmod 0775 /opt/ /entrypoint.sh && chown steam.steam /opt/ /entrypoint.sh && \
-    su steam -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
+RUN chmod 0775 /opt/ /entrypoint.sh && chown ${USER}.${GROUP} /opt/ /entrypoint.sh && \
+    su ${USER} -c "mkdir -p ${SERVERDIR} && cd ${STEAMCMDDIR} && ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
     echo -n >> /home/steam/query.json && chmod 777 /home/steam/query.json
 
 WORKDIR ${STEAMCMDDIR}
