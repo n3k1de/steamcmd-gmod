@@ -54,83 +54,98 @@ class SourceQuery(object):
 
 		header, data = self.__get_byte(data)
 		if chr(header) == SourceQuery.S2A_INFO_SOURCE:
-			result['Protocol'], data = self.__get_byte(data)
-			result['Hostname'], data = self.__get_string(data)
-			result['Map'], data = self.__get_string(data)
-			result['GameDir'], data = self.__get_string(data)
-			result['GameDesc'], data = self.__get_string(data)
-			result['AppID'], data = self.__get_short(data)
-			result['Players'], data = self.__get_byte(data)
-			result['MaxPlayers'], data = self.__get_byte(data)
-			result['Bots'], data = self.__get_byte(data)
+			result['protocol'], data = self.__get_byte(data)
+			result['name'], data = self.__get_string(data)
+			result['map'], data = self.__get_string(data)
+			result['folder'], data = self.__get_string(data)
+			result['game'], data = self.__get_string(data)
+			result['app'], data = self.__get_short(data)
+			playerCount, data = self.__get_byte(data)
+			playerMax, data = self.__get_byte(data)
+			result['player'] = [playerCount, playerMax]
+			result['bots'], data = self.__get_byte(data)
 			dedicated, data = self.__get_byte(data)
 			if chr(dedicated) == 'd':
-				result['Dedicated'] = 'Dedicated'
-			elif dedicated == 'l':
-				result['Dedicated'] = 'Listen'
+				result['type'] = 'dedicated'
+			elif chr(dedicated) == 'l':
+				result['type'] = 'non-dedicated'
+			elif chr(dedicated) == 'p':
+				result['type'] = 'SourceTVproxy'
 			else:
-				result['Dedicated'] = 'SourceTV'
-
+				result['type'] = False
 			os, data = self.__get_byte(data)
 			if chr(os) == 'w':
-				result['OS'] = 'Windows'
+				result['os'] = 'windows'
 			elif chr(os) in ('m', 'o'):
-				result['OS'] = 'Mac'
+				result['os'] = 'mac'
+			elif chr(os) == 'l':
+				result['os'] = 'linux'
 			else:
-				result['OS'] = 'Linux'
-			result['Password'], data = self.__get_byte(data)
-			result['Secure'], data = self.__get_byte(data)
-			if result['AppID'] == 2400:  # The Ship server
+				result['os'] = False
+			result['password'], data = self.__get_byte(data)
+			result['vac'], data = self.__get_byte(data)
+			if result['app'] == 2400:  # The Ship server
 				result['GameMode'], data = self.__get_byte(data)
 				result['WitnessCount'], data = self.__get_byte(data)
 				result['WitnessTime'], data = self.__get_byte(data)
-			result['Version'], data = self.__get_string(data)
+			result['version'], data = self.__get_string(data)
 			edf, data = self.__get_byte(data)
 			try:
 				if edf & 0x80:
-					result['GamePort'], data = self.__get_short(data)
+					result['port'], data = self.__get_short(data)
 				if edf & 0x10:
-					result['SteamID'], data = self.__get_long_long(data)
+					result['steamId'], data = self.__get_long_long(data)
 				if edf & 0x40:
-					result['SpecPort'], data = self.__get_short(data)
-					result['SpecName'], data = self.__get_string(data)
+					result['spectator'] = {}
+					result['spectator']['port'], data = self.__get_short(data)
+					result['spectator']['name'], data = self.__get_string(data)
 				if edf & 0x10:
-					result['Tags'], data = self.__get_string(data)
+					result['keywords'], data = self.__get_string(data)
+				
+				if edf & 0x01:
+					result['gameID'], data = self.__get_long_long(data)
 			except:
 				pass
 		elif chr(header) == SourceQuery.S2A_INFO_GOLDSRC:
-			result['GameIP'], data = self.__get_string(data)
+			result['ip'], data = self.__get_string(data)
 			result['Hostname'], data = self.__get_string(data)
-			result['Map'], data = self.__get_string(data)
-			result['GameDir'], data = self.__get_string(data)
-			result['GameDesc'], data = self.__get_string(data)
-			result['Players'], data = self.__get_byte(data)
-			result['MaxPlayers'], data = self.__get_byte(data)
-			result['Version'], data = self.__get_byte(data)
+			result['name'], data = self.__get_string(data)
+			result['map'], data = self.__get_string(data)
+			result['folder'], data = self.__get_string(data)
+			result['game'], data = self.__get_string(data)
+			playerCount, data = self.__get_byte(data)
+			playerMax, data = self.__get_byte(data)
+			result['player'] = [playerCount, playerMax]
+			result['version'], data = self.__get_byte(data)
 			dedicated, data = self.__get_byte(data)
 			if chr(dedicated) == 'd':
-				result['Dedicated'] = 'Dedicated'
-			elif dedicated == 'l':
-				result['Dedicated'] = 'Listen'
+				result['type'] = 'dedicated'
+			elif chr(dedicated) == 'l':
+				result['type'] = 'non-dedicated'
+			elif chr(dedicated) == 'p':
+				result['type'] = 'SourceTVproxy'
 			else:
-				result['Dedicated'] = 'HLTV'
+				result['type'] = False
 			os, data = self.__get_byte(data)
 			if chr(os) == 'w':
-				result['OS'] = 'Windows'
+				result['os'] = 'windows'
+			elif chr(os) == 'l':
+				result['os'] = 'linux'
 			else:
-				result['OS'] = 'Linux'
-			result['Password'], data = self.__get_byte(data)
-			result['IsMod'], data = self.__get_byte(data)
-			if result['IsMod']:
-				result['URLInfo'], data = self.__get_string(data)
-				result['URLDownload'], data = self.__get_string(data)
+				result['os'] = False
+			result['password'], data = self.__get_byte(data)
+			result['is_mod'], data = self.__get_byte(data)
+			if result['is_mod']:
+				result['mod'] = {}
+				result['mod']['link'], data = self.__get_string(data)
+				result['mod']['download'], data = self.__get_string(data)
 				data = self.__get_byte(data)[1]  # NULL-Byte
-				result['ModVersion'], data = self.__get_long(data)
-				result['ModSize'], data = self.__get_long(data)
-				result['ServerOnly'], data = self.__get_byte(data)
-				result['ClientDLL'], data = self.__get_byte(data)
-			result['Secure'], data = self.__get_byte(data)
-			result['Bots'], data = self.__get_byte(data)
+				result['mod']['version'], data = self.__get_long(data)
+				result['mod']['size'], data = self.__get_long(data)
+				result['mod']['type'], data = self.__get_byte(data)
+				result['mod']['dll'], data = self.__get_byte(data)
+			result['vac'], data = self.__get_byte(data)
+			result['bot'], data = self.__get_byte(data)
 
 		return result
 
@@ -164,19 +179,19 @@ class SourceQuery(object):
 		data = data[4:]
 
 		header, data = self.__get_byte(data)
+		if chr(header) != 'D':
+			print(chr(header), '!=', 'D')
 		num, data = self.__get_byte(data)
+		print(num)
 		result = []
 		try:
 			for i in range(num):
 				player = {}
-				data = self.__get_byte(data)[1]
 				player['id'] = i + 1  # ID of All players is 0
-				player['Name'], data = self.__get_string(data)
-				player['Frags'], data = self.__get_long(data)
-				player['Time'], data = self.__get_float(data)
-				ftime = time.gmtime(int(player['Time']))
-				player['FTime'] = ftime
-				player['PrettyTime'] = time.strftime('%H:%M:%S', ftime)
+				player['index'], data = self.__get_byte(data)
+				player['name'], data = self.__get_string(data)
+				player['score'], data = self.__get_long(data)
+				player['duration'], data = self.__get_float(data)
 				result.append(player)
 
 		except Exception:
