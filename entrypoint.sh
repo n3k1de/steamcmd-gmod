@@ -4,7 +4,6 @@ ulimit -n "${ULIMIT}"
 cd ${STEAMCMDDIR}
 chown steam.steam -R /opt/
 
-echo -n >> /opt/server/socket.log && chmod 777 /opt/server/socket.log && chown "${USER}":"${GROUP}" /opt/server/socket.log
 echo -n >> /opt/server/server.json && chmod 777 /opt/server/server.json && chown "${USER}":"${GROUP}" /opt/server/server.json
 echo -n >> /opt/server/players.json && chmod 777 /opt/server/players.json && chown "${USER}":"${GROUP}" /opt/server/players.json
 
