@@ -17,8 +17,8 @@ ENV GAME="gmod" \
     APIKEY="" \
     SERVERACCOUNT=""
 
-COPY --chown="${USER}":"${GROUP}" /entrypoint.sh /
-COPY --chown="${USER}":"${GROUP}" /healthcheck.py /
+COPY /entrypoint.sh /
+COPY /healthcheck.py /
 
 HEALTHCHECK  --interval=60s --timeout=60s CMD python3 /healthcheck.py ${PORT}
 
