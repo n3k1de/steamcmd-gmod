@@ -60,7 +60,7 @@ echo "{" >> "${SERVERDIR}/gmod/garrysmod/settings/users.txt"
 echo "	\"tf\"			\"1\"" >> "${SERVERDIR}/gmod/garrysmod/settings/users.txt"
 echo "	\"superadmin\"" > "${SERVERDIR}/gmod/garrysmod/settings/users.txt"
 echo "	{" >> "${SERVERDIR}/gmod/garrysmod/settings/users.txt"
-echo "		\"xWilliam\"" >> "${SERVERDIR}/gmod/garrysmod/settings/users.txt"
+echo "		\"${SUPERADMIN}\"" >> "${SERVERDIR}/gmod/garrysmod/settings/users.txt"
 echo "	}" >> "${SERVERDIR}/gmod/garrysmod/settings/users.txt"
 echo "}" >> "${SERVERDIR}/gmod/garrysmod/settings/users.txt"
 
