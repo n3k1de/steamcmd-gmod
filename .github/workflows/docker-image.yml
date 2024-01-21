@@ -32,4 +32,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: latest
+          tags: NetherKids/steamcmd-gmod:latest NetherKids/steamcmd-gmod:$(date +%s)
