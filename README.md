@@ -17,6 +17,7 @@
 * __APIKEY:__ The steam webapi key (needed to load workshop collections). [get an webapi key here](https://steamcommunity.com/dev/apikey).
 * __WORKSHOPCOLLECTION:__ The id of the collection. _To be found in the URL of the collection._
 * __SERVERACCOUNT:__ Needed to connect to the server from the internet. [get an account key here](https://steamcommunity.com/dev/managegameservers).
+* __SUPERADMIN:__ Admin of the server
 
 ## Server manage
 * create your own server: 
