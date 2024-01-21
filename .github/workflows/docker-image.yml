@@ -37,4 +37,3 @@ jobs:
             ${{ github.repository }}:${{ github.sha }}
             ${{ github.repository }}:${{ github.ref_name }}
             ${{ github.repository }}:${{ github.run_id }}
-            ${{ github.repository }}:$(date +%s)
