@@ -34,4 +34,4 @@ jobs:
           push: true
           tags: |
             NetherKids/steamcmd-gmod:latest
-            NetherKids/steamcmd-gmod:$(date +%s)
+            NetherKids/steamcmd-gmod:${{ env.sha_short }}"
