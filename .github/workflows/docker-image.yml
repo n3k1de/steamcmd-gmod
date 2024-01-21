@@ -34,4 +34,3 @@ jobs:
           push: true
           tags: |
             NetherKids/steamcmd-gmod:latest
-            NetherKids/steamcmd-gmod:$(git rev-parse --short HEAD)
