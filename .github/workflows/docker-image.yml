@@ -33,4 +33,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            NetherKids/steamcmd-gmod:latest
+            netherkids/steamcmd-gmod:latest
+            netherkids/steamcmd-gmod:$(git rev-parse --short HEAD)
