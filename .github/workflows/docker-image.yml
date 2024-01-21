@@ -34,4 +34,4 @@ jobs:
           push: true
           tags: |
             netherkids/steamcmd-gmod:latest
-            netherkids/steamcmd-gmod:$(git rev-parse --short HEAD)
+            netherkids/steamcmd-gmod:${{ github.ref_name }}
