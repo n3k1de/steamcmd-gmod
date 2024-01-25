@@ -7,8 +7,8 @@ on:
     types: [ published ]
 
 jobs:
-  build_and_push_debian:
-    name: Build Debian Image
+  build_and_push_debian_docker:
+    name: Build Debian Image (hub.docker)
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -39,8 +39,8 @@ jobs:
             ${{ github.repository }}:debian-bookworm
             ${{ github.repository }}:debian-bookworm-${{ steps.vars.outputs.date_info }}
   
-  build_and_push_debian:
-    name: Build Debian Image
+  build_and_push_debian_github:
+    name: Build Debian Image (ghcr)
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
