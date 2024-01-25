@@ -39,7 +39,6 @@ jobs:
           file: ./debian/bookworm/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:latest
             ${{ github.repository }}:latest
             ${{ github.repository }}:debian
             ${{ github.repository }}:debian-${{ steps.vars.outputs.date_info }}
