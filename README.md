@@ -32,7 +32,7 @@ docker run -d -t \
   -e APIKEY="*****" \
   -e WORKSHOPCOLLECTION="*****" \
   -e SERVERACCOUNT="*****" \
-  --name="gmod" netherkids/gmod:latest
+  --name="gmod" netherkids/steamcmd-gmod
 ```
 * The advaced way:
 ```
@@ -53,7 +53,7 @@ docker run -d -t \
   -e APIKEY="*****" \
   -e WORKSHOPCOLLECTION="*****" \
   -e SERVERACCOUNT="*****" \
-  --name="gmod" netherkids/gmod:latest
+  --name="gmod" netherkids/steamcmd-gmod
 ```
 
 
