@@ -6,18 +6,20 @@
 * [Team Fortress 2](https://store.steampowered.com/app/440/Team_Fortress_2/)
 
 ## Variables
-* __SERVERNAME__: the hostname of the server. _With this name the server can be found in the server in the steam list._
-* __PORT:__ Sets port for a listen server. _Default is 27015._
-* __CLIENTPORT:__ Sets the client port. Specifies which port to use to communicate with a server. _Default is 27005._
-* __MAXPLAYERS:__ Set the maximum players allowed to join the server. This does the same as the maxplayers convar, the maximum you can set it to is limited by the game/mod
-* __GAMEMODE:__ Set the gamemode the server is using. 
-* __MAP:__ For example 'gm_construct' or the name of the workshop item.
-* __PASSWD:__ The Password needed to join the server.
-* __RCONPASSWD:__ The admin password. `openssl rand -base64 32`
-* __APIKEY:__ The steam webapi key (needed to load workshop collections). [get an webapi key here](https://steamcommunity.com/dev/apikey).
-* __WORKSHOPCOLLECTION:__ The id of the collection. _To be found in the URL of the collection._
-* __SERVERACCOUNT:__ Needed to connect to the server from the internet. [get an account key here](https://steamcommunity.com/dev/managegameservers).
-* __SUPERADMIN:__ Admin of the server
+| __Name__ | __Default__ | __Info__ |
+| ---- | ---- | ---- |
+| __SERVERNAME__ |  | Name of the server |
+| __PORT__ | 27015 | Sets port for a listen server |
+| __CLIENTPORT__ | 27005 | Sets the client port. Specifies which port to use to communicate with a server |
+| __MAXPLAYERS__ | 16 | Set the maximum players allowed to join the server |
+| __GAMEMODE__ |  | Set the gamemode the server is using |
+| __MAP__ | gm_construct | For example 'gm_construct' or the name of the workshop item |
+| __PASSWD__ |  | The Password needed to join the server |
+| __RCONPASSWD__ |  | The admin password. `openssl rand -base64 32` |
+| __APIKEY__ |  | The steam webapi key (needed to load workshop collections) [get an webapi key here](https://steamcommunity.com/dev/apikey) |
+| __WORKSHOPCOLLECTION__ |  | The id of the collection. _To be found in the URL of the collection_ |
+| __SERVERACCOUNT__ |  | Needed to connect to the server from the internet. [get an account key here](https://steamcommunity.com/dev/managegameservers)
+| __SUPERADMIN__ |  | Admin of the server |
 
 ## Server manage
 * create your own server: 
@@ -53,6 +55,8 @@ docker run -d -t \
   -e SERVERACCOUNT="*****" \
   --name="gmod" netherkids/gmod:latest
 ```
+
+
 * view the console output: 
   * `docker logs gmod`
 * run a command on the server: 
