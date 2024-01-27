@@ -1,10 +1,5 @@
 # Garry's mod Server
 
-## Required games on Steam (installed):
-* [Garry's mod](https://store.steampowered.com/app/4000/Garrys_Mod/)
-* [Counter-Strike: Source](https://store.steampowered.com/app/240/CounterStrike_Source/?l=german)
-* [Team Fortress 2](https://store.steampowered.com/app/440/Team_Fortress_2/)
-
 ## Variables
 | __Name__ | __Default__ | __Info__ |
 | ---- | ---- | ---- |
