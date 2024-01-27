@@ -1,7 +1,7 @@
 FROM netherkids/steamcmd:debian-bookworm
 LABEL version="1.0" \
     maintainer="NetherKids <docker@netherkids.de>" \
-    org.opencontainers.image.source = "https://github.com/netherkids/steamcmd-gmod" 
+    org.opencontainers.image.source="https://github.com/netherkids/steamcmd-gmod" 
 
 EXPOSE 27015/tcp 27015/udp 27005/tcp 27005/udp 27020/udp
 
